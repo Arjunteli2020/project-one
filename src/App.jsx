@@ -9,9 +9,16 @@ function App() {
     { id: 4, title: "Laptop", date: new Date(2023, 9, 17), price: 200 },
   ];
 
+  const addExpenseHandler = (expense) => {
+    console.log(expense);
+    setExpenses((prevExpenses) => {
+      return [expense, ...prevExpenses];
+    });
+  };
+
   return (
     <div>
-      <NewExpense/>
+      <NewExpense onAddExpense={addExpenseHandler}/>
       <h2>Let's get Started</h2>
       <Expenses expenses={expenses} />
     </div>
